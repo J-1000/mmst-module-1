@@ -1,0 +1,26 @@
+.red {
+    background-color: red;
+}
+
+.box {
+    height: 100px;
+    width: 100px;
+}
+
+#click-to-end-program {
+    background-color: yellow;
+    height: 100px;
+    width: 100px;
+}
+
+.hex-color {
+    background-color: #00FF00;
+}
+
+.rgb-color {
+    background-color: rgb(255,0,0);
+}
+
+.rgba-color {
+    background-color: rgba(255,0,0,0.1);
+}
