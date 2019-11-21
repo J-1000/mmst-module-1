@@ -1,0 +1,100 @@
+:root{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+section {
+    margin: 10%;
+}
+
+/*
+
+parent > child {
+    property: value;
+  }
+
+The > combinator separates two selectors and matches only those elements matched by the second selector that are direct children of elements matched by the first.
+
+*/
+#directList > li {
+    color: white;
+    background-color: black;
+}
+
+
+/*
+
+parent descendant {
+    property: value;
+  }
+
+The " " (white space) combinator separates two selectors and matches only those elements matched by the second selector that are descendant of elements matched by the first.
+
+*/
+#indirectList  li {
+    color: white;
+    background-color: royalblue;
+}
+
+/*
+precedingElement + targetElement {
+    property: value;
+  }
+
+The + is the adjacent combinator selector or next-sibling selector. It will select only the specified element that immediately follows the former specified element
+*/  
+  #former { 
+   background-color: yellowgreen;
+  }
+  
+  #former + div {
+    background-color: green;
+  }
+
+
+/*
+oneElement, anotherElement {
+    property: value;
+  }
+
+The , is the multiple nt combinator selector apply the same list of rules to different elements
+*/
+div#multiple {
+    font-style: italic;
+}
+
+.oneElement, .anotherElement {
+    font-size: 1.5rem;
+}
+
+/*
+element[attribute-name="target-value"] {
+    property: value;
+  }
+
+The , is the multiple nt combinator selector apply the same list of rules to different elements
+*/
+a[href*="hack"] {
+    color: green;
+  }
+  a {
+    display: block;
+  }
+
+
+/* Attribute ADVANCED*/
+
+/* All spans with a "lang" attribute are bold */
+span[lang] {font-weight:bold;}
+ 
+/* All spans in Portuguese are green */
+span[lang="pt"] {color:#20b2aa;}
+
+/* All spans in Italian are blue  */
+span[lang~="it"] {color: #1d7fd4;}
+
+/* Any span in Chinese is red, matches
+   simplified (zh-CN) or traditional (zh-TW) */
+span[lang|="zh"] {color: red;}
+
+/* All page bookmarks have a gold background */
+a[href^="#"] {background-color: gold;}

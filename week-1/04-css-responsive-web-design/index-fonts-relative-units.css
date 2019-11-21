@@ -1,0 +1,62 @@
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+}
+
+section {
+    margin: 10%;
+    font-size: 1.6rem;
+}
+
+
+/*
+  @media [(media-features)] {
+  // Styles
+}
+  */
+
+#responsive {
+    width: 15vw;
+    height: 15vh;
+    background-color: blue;
+}
+
+@media (min-width: 1000px) {
+    #responsive {
+        width: 100vw;
+        height: 100vh;
+        background-color: blueviolet;
+    }
+}
+
+@media (min-width: 751px) and (max-width: 999px) {
+    #responsive {
+        width: 25vw;
+        height: 25vh;
+        background-color: darkcyan;
+    }
+}
+
+
+/* 
+#responsive {
+    width: 15rem;
+    height: 15rem;
+    background-color: blue;
+}
+
+@media (min-width: 1000px) {
+    #responsive {
+        width: 50rem;
+        height: 50rem;
+        background-color: blueviolet;
+    }
+}
+
+@media (min-width: 751px) and (max-width: 999px) {
+    #responsive {
+        width: 25rem;
+        height: 25rem;
+        background-color: darkcyan;
+    }
+} */

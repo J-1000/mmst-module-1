@@ -1,0 +1,36 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+section {
+  margin: 10%;
+}
+
+/*
+  @media [(media-features)] {
+  // Styles
+}
+  */
+
+#responsive {
+  width: 200px;
+  height: 200px;
+  background-color: lawngreen;
+}
+
+
+@media (min-width: 1000px){
+    #responsive {
+        width: 600px;
+        height: 600px;
+        background-color: red;
+      }
+}
+
+@media (min-width: 751px) and (max-width: 999px){
+    #responsive {
+        width: 400px;
+        height: 400px;
+        background-color: orange;
+      }
+}

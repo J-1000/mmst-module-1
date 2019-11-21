@@ -1,0 +1,43 @@
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+section {
+    margin: 10%;
+}
+
+#boxModel {
+    /* border: 1px solid #17212e; */
+    border-color: #17212e;
+    border-style: solid;
+    border-width: 1px;
+    /*
+    border-bottom: 1px solid #17212e;
+  */
+    /*
+    border: solid #17212e;
+    border-width: 0 0 1px 0;
+  */
+    /*
+    border-color: red blue green yellow;
+    border-style: solid dashed dotted double;
+  */
+    border-radius: 12px;
+    /*border-radius: 12px;
+  */
+}
+
+#circularElement {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+
+#boxModel {
+    padding: 10px 10px 10px 10px;
+}
+
+#boxModel {
+    margin: 25px 25px 25px 25px;
+}
