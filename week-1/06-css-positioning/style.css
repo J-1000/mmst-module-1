@@ -1,0 +1,41 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position: sticky;
+    top: 0px;
+    background-color:grey;
+    width: 100%;
+    height: 100px;
+    z-index: 2;
+}
+
+#onepage {
+    height: 100vh;
+}
+
+h1 {
+    position: sticky;
+    top: 100px;
+    background-color: purple;
+    color: white;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+p {
+    margin-bottom: 0px;
+}
+
+/* section {
+    position: relative;
+    top: 100px;
+} */
+footer {
+    position: sticky;
+    bottom: 0;
+    background-color: grey;
+    height: 100px;
+}
