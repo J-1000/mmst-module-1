@@ -62,6 +62,43 @@ function orderAlphabetically(array) {
 }
 // Iteration 6: Time Format - Turn duration of the movies from hours to minutes
 
+// easier solution
+// function convertHours(duration) {
+//   let totalTime = 0;
+//   let hours = 0;
+//   let minutes = 0;
+
+//   const time = duration.split(" ");
+
+//   if (time.length >= 2) {
+//     hours = parseInt(time[0]);
+//     minutes = parseInt(time[1]);
+//   } else {
+//     // if (time[0].indexOf("min") !== -1) {
+//     if (time[0].includes("min")) {
+//       minutes = parseInt(time[0]);
+//       // } else if (time[0].indexOf("h") !== -1) {
+//     } else if (time[0].includes("h")) {
+//       hours = parseInt(time[0]);
+//     }
+//   }
+
+//   totalTime = hours * 60 + minutes;
+//   return totalTime;
+// }
+
+// function turnHoursToMinutes(movies) {
+//   const newMovies = movies.map(function(movie) {
+//     const newMovie = { ...movie };
+
+//     newMovie.duration = convertHours(movie.duration);
+
+//     return newMovie;
+//   });
+
+//   return newMovies;
+// }
+
 const turnHoursToMinutes = ar => ar.map(movie => {
   let convertedDuration = 0;
   if (movie.duration.includes('h')) {
