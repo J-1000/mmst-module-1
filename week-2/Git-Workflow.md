@@ -7,11 +7,11 @@
 
 Switch to the master branch: 
     
-    `git checkout master`
+    git checkout master
 
 Create a new branch and switch to it: 
     
-    `git checkout -b <branch-name>`
+    git checkout -b <branch-name>
 
 Make some changes and then add the files and commit them: 
     
