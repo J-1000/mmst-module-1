@@ -3,7 +3,7 @@
 ## Resourcen
 - Git Cheatsheet by GitHub: https://services.github.com/on-demand/downloads/github-git-cheat-sheet/
 
-## Ablauf
+## Process
 
 Change to the master branch: git checkout master
 
