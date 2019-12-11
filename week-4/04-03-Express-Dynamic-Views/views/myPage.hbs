@@ -1,3 +1,49 @@
  <h1>Ich heisse {{name}} {{lastName}}</h1>
 
+ {{#if lastName}}
+        <h2>ich habe einen Nachnamen</h2>
+    {{else}}
+        <h2>ich habe keinen Nachnamen</h2>
+    {{/if}}
+
+    {{#unless lastName}}
+        <p>Nachname wurde nicht gefunden</p>
+    {{/unless}}
+
 <p>Ich wohne in {{{location}}}</p>
+
+    <ul>
+        {{#each cities}}
+        <li>{{this}}</li>
+        {{else}}
+        <p>No cities yet!</p>
+        {{/each}}
+    </ul>
+
+     <ul>
+        {{#each cities}}
+        <li>{{@index}}: {{this}}</li>
+        {{/each}}
+    </ul>
+
+    <ul>
+        {{#each contact}}
+        <li>{{@key}}: <strong>{{this}}</strong> </li>
+        {{/each}}
+    </ul>
+
+     <ul>
+        {{#each cities}}
+            {{#if @first}}
+                <li><b>{{this}}</b></li>
+            {{else if @last}}
+                <li><i>{{this}}</i></li>
+            {{else}}
+            <li>{{this}}</li>
+            {{/if}}
+        {{/each}}
+    </ul>
+
+    {{#with contact}}
+        <p>{{street}}, {{phone}}</p>
+    {{/with}}

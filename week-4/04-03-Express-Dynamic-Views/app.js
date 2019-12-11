@@ -11,8 +11,15 @@ app.get("/", (req, res, next) => {
 app.get("/meineSeite", (req, res, next) => {
  let theData={
      name:"Peter",
-     lastName:"Pan",
-     location: "<h1>Ingolstadt</h1>"
+    // lastName:"Pan",
+    cities: ["Miami", "Madrid", "Barcelona", "Paris", "México", "Berlin"],
+     location: "<h1>Ingolstadt</h1>",
+     contact: {
+      street: "Kurt-Schumacher-Strasse",
+      phone: "0138 36785",
+      mail: "peter.pan@mail.com",
+      web: "www.peter-pan.com"
+    }
  }
   res.render("myPage", theData);
 });
