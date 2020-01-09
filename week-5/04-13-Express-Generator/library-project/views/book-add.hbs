@@ -2,8 +2,11 @@
   <label for="">Title:</label>
   <input type="text" name="title">
 
-  <label for="">Author:</label>
-  <input type="text" name="author">
+  <select name="author" multiple>
+    {{#each authors}}
+    <option value="{{this._id}}">{{this.name}} {{this.lastName}}</option>
+    {{/each}}
+  </select>
 
   <label for="">Description:</label>
   <input type="text" name="description">
