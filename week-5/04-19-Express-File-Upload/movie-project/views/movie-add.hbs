@@ -1,0 +1,19 @@
+<h2>Upload a new Movie</h2>
+
+<form action="/movie/add" method="post" enctype="multipart/form-data">
+  <div>
+    <label>Title</label>
+    <input type="text" name="title" />
+  </div>
+  <div>
+    <label>Description</label>
+    <input type="text" name="description"/>
+  </div>
+  <div>
+    <label>Poster</label>
+    <input type="file" name="poster" />
+  </div>
+  <div>
+    <button type="submit">SAVE</button>
+  </div>
+</form>
