@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import ImprovedCard from "./ImprovedCard";
 import mongoose from "mongoose";
+import AddMovie from './AddMovie';
+
 class DynamicMoviesList extends Component {
   constructor() {
     super();
@@ -24,9 +26,10 @@ class DynamicMoviesList extends Component {
     });
   };
 
-  addHarryPotter = () => {
-    const moviesCopy = [...this.state.movies]; // <== notice the spread operator here!
-    moviesCopy.push({ _id: new mongoose.Types.ObjectId(), title: "Harry Potter", director: "No idea" });
+  addMovieHandler = (theMovie) => {
+    theMovie._id = new mongoose.Types.ObjectId();
+    const moviesCopy = [...this.state.movies];
+    moviesCopy.push(theMovie);
     this.setState({
       movies: moviesCopy
     })
@@ -45,8 +48,8 @@ class DynamicMoviesList extends Component {
 
     return (
       <div>
+        <AddMovie addTheMovie={this.addMovieHandler} />
         {filteredMoviesJSX}
-        <button onClick={this.addHarryPotter}>Add Harry Potter</button>
         <button onClick={this.toggleMovies}>
           {this.state.showOscarAwarded ? 'Hide Oscar Awarded' : 'Show Oscar Awarded'}
         </button>
