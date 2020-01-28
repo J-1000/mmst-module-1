@@ -35,7 +35,7 @@ class AddMovie extends Component {
             <div>
                 <form onSubmit={this.handleFormSubmit}>
                     <label>Title:</label>
-                    <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />
+                    <input type="text" name="title" value={this.state.title} />
 
                     <label>Director:</label>
                     <input type="text" name="director" value={this.state.director} onChange={this.handleChange} />
