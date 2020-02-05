@@ -13,19 +13,12 @@ class ProjectDetail extends Component {
     taskForm: false,
     title: "",
     description: "",
-    submitted: false,
-    imageSelected: false,
     imageURL: "",
     publicID: ""
   };
 
   getData = () => {
-    // get the data from the API
-    // update the state accordingly
-
     const id = this.props.match.params.id;
-    // console.log("/api/projects/" + id);
-
     axios
       .get(`/api/projects/${id}`)
       .then(response => {
@@ -49,43 +42,13 @@ class ProjectDetail extends Component {
     this.getData();
   }
 
-  handleFileUpload = e => {
-    console.log("The file to be uploaded is: ", e.target.files[0]);
-    this.setState({
-      imageSelected: true
-    });
-    const uploadData = new FormData();
-    uploadData.append("imageURL", e.target.files[0]);
-
-    service.handleUpload(uploadData)
-      .then(response => {
-        const imageURL = response.secure_url;
-        const publicID = response.public_id;
-        console.log('res from handleupload: ', response.secure_url);
-        this.setState({ imageURL: imageURL, publicID: publicID });
-        console.log('new state: ', this.state.imageURL);
-        // check if the form already got submitted and only waits for the image upload
-        if (this.state.submitted === true) {
-          this.handleSubmit();
-        }
-      })
-      .catch(err => {
-        this.setState({
-          imageSelected: false
-        });
-        console.log("Error while uploading the file: ", err);
-      });
-  }
-
   deleteProject = () => {
     const id = this.state.project._id;
     axios
       .delete(`/api/projects/${id}`)
       .then(response => {
-        // redirect to '/projects'
         console.log(this.props.history);
-        this.props.history.push("/projects"); // `/projects` is our client side route
-        // this.props.history comes from react-router-dom <Route>
+        this.props.history.push("/projects");
       })
       .catch(err => {
         console.log(err);
@@ -99,15 +62,35 @@ class ProjectDetail extends Component {
   };
 
   handleChange = event => {
+    const { name, value } = event.target;
     this.setState({
-      [event.target.name]: event.target.value
+      [name]: value
     });
   };
 
   handleSubmit = event => {
     event.preventDefault();
 
-    // const id = this.state.project._id
+    if (event.targe.files[0]) {
+      const uploadData = new FormData();
+      uploadData.append("imageURL", event.target.files[0]);
+
+      service.handleUpload(uploadData)
+        .then(response => {
+          const imageURL = response.secure_url;
+          const publicID = response.public_id;
+          this.setState({ imageURL: imageURL, publicID: publicID });
+        })
+        .catch(err => {
+          this.setState({
+            imageSelected: false
+          });
+          console.log("Error while uploading the file: ", err);
+          this.setState({
+            error: err
+          })
+        });
+    }
 
     const id = this.props.match.params.id;
     axios
@@ -120,11 +103,8 @@ class ProjectDetail extends Component {
       .then(response => {
         this.setState({
           project: response.data,
-          // title: response.data.title,
-          // description: response.data.description,
           editForm: false
         });
-        console.log(response);
       })
       .catch(err => {
         console.log(err);
@@ -132,7 +112,6 @@ class ProjectDetail extends Component {
   };
 
   render() {
-    console.log(this.state, this.props);
     if (this.state.error) {
       return <p>{this.state.error}</p>;
     } else if (this.state.project === null) {
@@ -144,7 +123,6 @@ class ProjectDetail extends Component {
     if (this.state.project.owner === this.props.user._id) {
       canUpdate = true;
     }
-    console.log(canUpdate);
     return (
       <div>
         <h1>{this.state.project.title}</h1>
